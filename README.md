@@ -1,4 +1,4 @@
-# 47 Fundamental RNN Interview Questions
+# 47 Fundamental RNN Interview Question
 
 <div>
 <p align="center">
