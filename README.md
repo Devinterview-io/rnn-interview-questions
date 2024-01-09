@@ -536,7 +536,7 @@ This is a challenge when processing long sequences, as early inputs can have a p
 
 - **Forget Gate**: $f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)$
 - **Input Gate**: $i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)$
-- **Candidate Value**: $\tilde{C}_t = \tanh(W_C \cdot [h_{t-1}, x_t] + b_C)$ and $C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t$
+- **Candidate Value**: ![latex equation]()
 - **Output Gate**: $o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)$ and $h_t = o_t \odot \tanh(C_t)$
 
 ### The LSTM in Action
