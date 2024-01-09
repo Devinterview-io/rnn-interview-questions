@@ -87,7 +87,7 @@ In a **Recurrent Neural Network (RNN)**, **time steps** represent the sequential
 
 In the context of **RNN Equations**, the time dependence is indicated by the subscript $t$. For instance, the formulas for computing the hidden state at time $t$ become:
 
-![equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F2_2.png?alt=media&token=1bebda4b-e45d-4794-bf83-c8370bf8ce63)
+![equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F2_1.png?alt=media&token=aab49d28-a0ef-463b-bbd8-49010ca86f84)
 
 - Here, $h_{t-1}$, $h_t$, and $x_t$ are associated with specific time points.
 - The weight matrices $W_{hh}$ and $W_{xh}$ **remain constant** across time steps.
