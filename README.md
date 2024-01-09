@@ -87,12 +87,7 @@ In a **Recurrent Neural Network (RNN)**, **time steps** represent the sequential
 
 In the context of **RNN Equations**, the time dependence is indicated by the subscript $t$. For instance, the formulas for computing the hidden state at time $t$ become:
 
-$$
-$$
-h_t & = \sigma(W_{hh}h_{t-1} + W_{xh}x_t + b_h) \\
-\bar{y}_t & = \sigma(W_{hy}h_t + b_y)
-$$
-$$
+![equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F2_2.png?alt=media&token=1bebda4b-e45d-4794-bf83-c8370bf8ce63)
 
 - Here, $h_{t-1}$, $h_t$, and $x_t$ are associated with specific time points.
 - The weight matrices $W_{hh}$ and $W_{xh}$ **remain constant** across time steps.
@@ -536,7 +531,7 @@ This is a challenge when processing long sequences, as early inputs can have a p
 
 - **Forget Gate**: $f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)$
 - **Input Gate**: $i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)$
-- **Candidate Value**: ![latex equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2Fequation%20(1).png?alt=media&token=a292bebb-0088-4ad1-8136-21a6859c27e5)
+- **Candidate Value**: ![latex equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2Flatex.png?alt=media&token=88197197-a718-4445-8f71-f14973cd8a67)
 - **Output Gate**: $o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)$ and $h_t = o_t \odot \tanh(C_t)$
 
 ### The LSTM in Action
@@ -597,10 +592,7 @@ Four main gates operate within an LSTM cell, employing various **sigmoid and ele
 
 #### Cell State Update
 - The new cell state is computed by taking a weighted sum of the previous cell state and the new input.
-
-    $${\text{new\_cell\_state}} = {\text{forget\_gate}} \odot {\text{cell\_state}} + {\text{input\_gate}} \odot \tanh({\text{cell\_input}})$$
-
-    $\odot$ represents element-wise multiplication, and ${\text{cell\_input}}$ is the input after the input gate.
+![equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F12_1.png?alt=media&token=95e41c69-d0d5-495b-898c-e1940252a947)
 
 ### Code Example
 
@@ -651,27 +643,11 @@ Both **LSTM** and **GRU** networks are designed to address the issue of vanishin
 
 **LSTM**:
 
-$$
-$$
-f_t &= \sigma(W_f \cdot [h_{t-1}, x_t] + b_f) \\
-i_t &= \sigma(W_i \cdot [h_{t-1}, x_t] + b_i) \\
-\tilde{C}_t &= \tanh(W_C \cdot [h_{t-1}, x_t] + b_C) \\
-C_t &= f_t \odot C_{t-1} + i_t \odot \tilde{C}_t \\
-o_t &= \sigma(W_o \cdot [h_{t-1}, x_t] + b_o) \\
-h_t &= o_t \odot \tanh(C_t)
-$$
-$$
+![equation lstm](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F13_lstm.png?alt=media&token=3a6651e3-bcb7-452f-8020-2f8cceab93c1)
 
 **GRU**:
 
-$$
-$$
-z_t &= \sigma(W_z \cdot [h_{t-1}, x_t] + b_z) \\
-r_t &= \sigma(W_r \cdot [h_{t-1}, x_t] + b_r) \\
-\tilde{h}_t &= \tanh(W \cdot [r_t \odot h_{t-1}, x_t] + b) \\
-h_t &= (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
-$$
-$$
+![equation gru](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F13_gru.png?alt=media&token=bd7ac501-84df-4a65-9bae-c6db6dc853d7)
 
 #### Gating Mechanism
 
@@ -712,13 +688,13 @@ $$
 - Apply a softmax function to standardize relevance scores across all time steps. 
 - The result is a set of weights, one for each input element, summing to 1 and facilitating weighted summation.
 
-  $$ \text{Attention Weights} = \text{softmax}(\text{Relevance Scores}) $$
+![equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F14_attention%20weights.png?alt=media&token=8ceeec2c-116f-4f8e-a223-82b40c586c0e)
 
 #### Forming the Context Vector
 
 - Multiply the $x_t$ sequence with their corresponding attention weight to obtain a context vector that focuses on the most important components.
 
-  $$ \text{Context Vector} = \Sigma_t \text{Attention Weight}_t \times x_t $$
+![equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2F14_context-vector.png?alt=media&token=7de20e4c-4233-437f-aff1-dd75143b3b2e)
 
 #### Final State Update
 
