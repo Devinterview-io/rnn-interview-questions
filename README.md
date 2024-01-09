@@ -1,4 +1,4 @@
-# 47 Fundamental RNN Interview Question
+# 47 Fundamental RNN Interview Questions
 
 <div>
 <p align="center">
@@ -536,7 +536,7 @@ This is a challenge when processing long sequences, as early inputs can have a p
 
 - **Forget Gate**: $f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)$
 - **Input Gate**: $i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)$
-- **Candidate Value**: ![latex equation]()
+- **Candidate Value**: ![latex equation](https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/rnn%2Fequation%20(1).png?alt=media&token=a292bebb-0088-4ad1-8136-21a6859c27e5)
 - **Output Gate**: $o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)$ and $h_t = o_t \odot \tanh(C_t)$
 
 ### The LSTM in Action
